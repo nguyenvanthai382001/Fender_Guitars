@@ -1,0 +1,68 @@
+.wrapper{
+    padding-bottom: 500px;
+}
+.container {
+    max-width: 1230px;
+}
+
+// Button Prev, Next
+.slick-prev,
+.slick-next {
+    position: absolute;
+    z-index: 10;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    background-color:  #C4C4C4;
+    &:hover {
+        background: $primary-color;
+        color: #fff;
+    }
+    @include maxWidth(1024px) {
+        width: 30px;
+        height: 30px;
+    }
+}
+// Text Truncate
+.text-truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+// sticky header
+.sticky{
+    position: fixed;
+    top: 0;
+    border-top: 1px solid #d6d6d6;
+}
+
+// slide dot
+
+.slick-dots{
+    position:absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 50px);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 0 10px;
+    font-size: 0px;
+    width: 15px;
+    height: 15px;
+}
+
+sup{
+    font-size: 16x;
+    top: -0.1rem;
+    margin-right: 5px;
+    margin-left: -10px;
+}
+
+.banner{
+    display: none;
+}

@@ -1,0 +1,229 @@
+.header{
+    position: relative;
+    .header-top{
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            justify-content: center;
+            margin-bottom: 0;
+            li{
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 10px 0px;
+                a{
+                    font-size: 12px;
+                    color: #888;
+                    text-decoration: none;
+                }
+                a:hover{
+                    color: red;
+                }
+
+            }
+            li:nth-child(1){
+                border-top: 4px solid #d52b1e;
+                color: #d52b1e;
+                a{
+                    color: #d52b1e;
+                }
+            }
+            
+        }
+    }
+    .header-line{
+        background-color: #f9f9f9;
+        height: 14px;
+        border-top: 1px solid #d6d6d6;
+        border-bottom: 1px solid #d6d6d6;
+
+    }
+    .navigation{
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        border-bottom: 1px solid #d6d6d6;
+        overflow: hidden;
+        width: 100%;
+        .toggle{
+            background-color: #fff;
+            height: 70px;
+            width: 70px;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            right:0;
+            display: none;
+        }
+        .toggle {
+            span{
+                position: absolute;
+                width: 30px;
+                height: 1px;
+                background-color: #000;
+                border-radius: 4px;
+                transition: 0.5s;
+            }
+            span:nth-child(1){
+                transform: translateY(-8px);
+            }
+            span:nth-child(2){
+                transform: translateY(8px);
+            }
+        }
+        .toggle.active span:nth-child(3){
+            transform: translateX(60px);
+            background-color: $primary-color;
+        
+        }
+        .toggle.active span:nth-child(1){
+            transform: translateX(0px) rotate(45deg);
+            transition-delay: 0.125s;
+            background-color: $primary-color;
+        
+        }
+        .toggle.active span:nth-child(2){
+            transform: translateX(0px) rotate(315deg);
+            transition-delay: 0.25s; 
+            background-color: $primary-color;
+            
+        }
+        .logo{
+            cursor: pointer;
+            img{
+                width: auto;
+                height: auto;
+            }
+        }
+        ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin-bottom: 0;
+            .shop{
+                display: none;
+            }
+            li {
+                .navigation-home{
+                    display: none;
+                }
+                a{
+                    font-size: 12px;
+                    color: #666;
+                    font-weight: 700;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    position: relative;
+                    padding: 23px 6px;
+                    ion-icon {
+                        margin-left: 4px;
+                    }
+                }
+                a:before{
+                    content: "";
+                    height: 4px;
+                    width: 100%;
+                    background: #d52b1e;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 10000;
+                    transform-origin: bottom right;
+                    transform: scaleX(0);
+                    transition: transform .5s ease;
+                }
+                a:hover:before{
+                    transform-origin: bottom left;
+                    transform: scaleX(1);                
+                }
+                a:hover{
+                    ion-icon {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+        .search{
+            border-left: 1px solid #d6d6d6;
+            border-right: 1px solid #d6d6d6;
+            height: 64px;
+            width: 64px;
+            text-align: center;
+            margin-right: 10px;
+            line-height: 64px;
+            padding-top: 5px;
+            a{
+                ion-icon{
+                    font-size: 23px;
+                    color: rgb(32, 31, 31);
+                }
+            }
+        }
+        .search:hover{
+            border-bottom: 4px solid #d52b1e;
+        }
+
+    }
+    @include maxWidth(1024px){
+        .header-top{
+            ul{
+                li{
+                    padding: 7px 0;
+                }
+            }
+        }
+        .navigation{
+            ul{
+                display: block;
+                position: absolute;
+                top: 128px;
+                left: 0;
+                z-index: 99;
+                background-color: #f9f9f9;
+                height: 100vh;
+                width: 80%;
+                overflow-y:auto;
+                text-align: left;
+                padding-left: 90px;
+                padding-right: 90px;
+                left: -100%;
+                transition: 0.3s;
+                li{
+                    .navigation-home{
+                        display: block;
+                    }
+                    a{ 
+                        padding: 31px;
+                        font-size: 14px;
+                        color: #000;
+                        border-bottom: 1px solid #d3cccc;
+                        padding-left: 20px;
+                        justify-content: space-between;
+                    }
+                }
+            }
+            .toggle{
+                display: flex;
+            }
+            .logo{
+                margin-left: -450px;
+            }
+        }
+        .navigation.active{
+            ul{
+                left: 0;
+            }
+        }
+    }
+    @include maxWidth(576px){
+        
+    }
+}
