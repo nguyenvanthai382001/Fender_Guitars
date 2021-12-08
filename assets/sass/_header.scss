@@ -77,7 +77,7 @@
             }
         }
         .toggle.active span:nth-child(3){
-            transform: translateX(60px);
+            transform: translateX(-60px);
             background-color: $primary-color;
         
         }
@@ -135,7 +135,7 @@
                     position: absolute;
                     bottom: 0;
                     left: 0;
-                    z-index: 10000;
+                    z-index: 1;
                     transform-origin: bottom right;
                     transform: scaleX(0);
                     transition: transform .5s ease;
@@ -166,10 +166,88 @@
                     color: rgb(32, 31, 31);
                 }
             }
+            // toggle search
+            .search-form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                position: absolute;
+                top: 62px;
+                left: 50%;
+                z-index: 10;
+                transform: translateX(-50%);
+                background-color: #fff;
+                padding-bottom: 20px;
+                display: none;
+                .logo-search{
+                    .close-search{
+                        position: absolute;
+                        top: 20px;
+                        left: 20px;
+                        text-decoration: none;
+                        ion-icon{
+                            color: $primary-color;
+                            font-size: 36px;
+                        }
+                    }
+                    img{
+                        height: 40px;
+                        width: 87px;
+                    }
+                }
+                form{
+                    margin-top: 40px;
+                    position: relative;
+                    a{
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                        z-index: 1;
+                        font-size: 20px;
+                        color: $primary-color;
+                        padding: 20px 30px;
+                    }
+                    input{
+                        width: 768px;
+                        height: 77px;
+                        border: 1px solid #979797;
+                        padding: 26px 37px 26px 94px;
+                        outline: 0;
+                    }
+                    input:focus{
+                        border-color: pink;
+                        box-shadow: 1px 1px 4px pink;
+                    }
+                    ion-icon{
+                        color: $primary-color;
+                        margin-top: 30px;
+                    }
+            
+                }
+            }
+            .sticky{
+                position: fixed;
+                top: 0;
+                border-top: 1px solid #d6d6d6;
+                z-index: 99;
+                border-top: none;
+            }
+            
+            .open-search-a{
+                display: flex;
+            }
+            .close-search-a{
+                display: none;
+            }
         }
         .search:hover{
             border-bottom: 4px solid #d52b1e;
         }
+
+
 
     }
     @include maxWidth(1024px){
@@ -186,7 +264,7 @@
                 position: absolute;
                 top: 128px;
                 left: 0;
-                z-index: 99;
+                z-index: 1;
                 background-color: #f9f9f9;
                 height: 100vh;
                 width: 80%;
@@ -224,6 +302,48 @@
         }
     }
     @include maxWidth(576px){
-        
+        .header-top{
+            display: none;
+        }
+        .header-line{
+            display: none;
+        }
+        .navigation{
+            .logo{
+                margin-left:-160px;
+            }
+            .toggle{
+                width: 50px;
+                height: 60px;
+                span{
+                    width: 25px;
+                }
+            }
+            .search{
+                border: none;
+                margin-right: -10px;
+            }
+            ul{
+                top: 65px;
+                width: 100%;
+                padding: 0 20px;
+            }
+            .search{
+                .open-search{
+                    font-size: 24px;
+                }
+                .search-form{
+                    top: 0;
+                    form{
+                        margin-top: 15px;
+                        input{
+                            width: 359px;
+                            height: 77px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+

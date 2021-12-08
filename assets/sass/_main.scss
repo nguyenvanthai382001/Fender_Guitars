@@ -1,6 +1,4 @@
-.wrapper{
-    padding-bottom: 500px;
-}
+//        
 .container {
     max-width: 1230px;
 }
@@ -37,6 +35,8 @@
     position: fixed;
     top: 0;
     border-top: 1px solid #d6d6d6;
+    z-index: 99;
+    border-top: none;
 }
 
 // slide dot
@@ -63,3 +63,6 @@ sup{
     margin-left: -10px;
 }
 
+.banner{
+    // display: none;
+}
